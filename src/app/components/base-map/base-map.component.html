@@ -1,0 +1,14 @@
+<div class="map-container">
+  @if(!isGoogleMapsLoaded) {
+    <div class="loading">
+      <ion-spinner name="crescent"></ion-spinner>
+      <p>Cargando mapa...</p>
+    </div>
+  }
+  
+  @if(isGoogleMapsLoaded) {
+    <google-map height="100%" width="100%" [center]="center" [zoom]="zoom"
+    [options]="mapOptions">
+  </google-map>
+  }
+</div>
