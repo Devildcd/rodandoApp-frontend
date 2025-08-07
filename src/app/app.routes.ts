@@ -20,6 +20,16 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/trip/trip.component'),
   },
   {
+    path: 'trip-progress',
+    loadComponent: () => import('./pages/trip-progress/trip-progress.component'),
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./pages/trip-progress/trip-progress.routes'),
+      },
+    ]
+  },
+  {
     path: 'tabs',
     loadComponent: () => import('./pages/main-tabs/main-tabs.component'),
     children: [

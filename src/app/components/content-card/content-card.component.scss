@@ -28,7 +28,7 @@ ion-card.search-card {
   width: clamp(300px, 90%, 500px);
   max-height: 80vh;
   overflow-y: auto;
-  --background: rgba(var(--ion-color-light-contrast-rgb), 0.9);
+  --background: rgba(var(--ion-color-light-contrast-rgb), 0.8);
   border-radius: 100rem;
   box-shadow: 0 0.375rem 1.25rem rgba(0, 0, 0, 0.5);
   color: var(--ion-color-light);

@@ -1,0 +1,105 @@
+<ion-content>
+  <ion-card class="trip-details-card">
+    <ion-card-content>
+      <!-- Header + Resumen -->
+      <div class="trip-details-header">
+        <div class="header-title">
+          <span>Detalles del viaje</span>
+        </div>
+        <div class="trip-summary">
+          <div class="summary-item">
+            <ion-icon name="map"></ion-icon>
+            <span>{{ distance }} km</span>
+          </div>
+          <div class="summary-item">
+            <ion-icon name="time"></ion-icon>
+            <span>≈ {{ duration }} min</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="address-wrapper">
+        <!-- Origen -->
+        <div class="address-line">
+          <div class="address-left">
+            <ion-icon name="navigate" class="address-icon origin"></ion-icon>
+            <span class="address-text">{{ originAddress }}</span>
+          </div>
+          <ion-button fill="outline" size="small">
+            <ion-icon slot="start" name="pencil-outline"></ion-icon>
+            Editar
+          </ion-button>
+        </div>
+
+        <!-- Línea punteada -->
+        <div class="connector"></div>
+
+        <!-- Destino -->
+        <div class="address-line">
+          <div class="address-left">
+            <ion-icon name="location" class="address-icon destination"></ion-icon>
+            <span class="address-text">{{ destinationAddress }}</span>
+          </div>
+          <ion-button fill="outline" size="small">
+            <ion-icon slot="start" name="pencil-outline"></ion-icon>
+            Editar
+          </ion-button>
+        </div>
+      </div>
+
+      <!-- Selector de vehículo -->
+      <div class="vehicle-chip-list">
+        <ion-chip *ngFor="let v of vehicleTypes" [outline]="v.value !== selectedVehicle"
+          [color]="v.value === selectedVehicle ? 'primary' : undefined" (click)="selectVehicle(v.value)">
+          <ion-icon [name]="v.icon" slot="start"></ion-icon>
+          <ion-label>{{ v.label }}</ion-label>
+        </ion-chip>
+      </div>
+
+      <div class="service-tiles">
+        <ng-container *ngFor="let type of serviceTypes">
+          <div class="service-tile" [class.selected]="type.value === selectedType" (click)="selectType(type)">
+            <!-- Icono de selección -->
+            <ion-icon class="tile-icon" name="checkmark-circle-outline"></ion-icon>
+
+            <!-- Icono principal -->
+            <div class="icon-wrapper">
+              <ion-icon [name]="type.icon"></ion-icon>
+            </div>
+
+            <!-- Label y ETA -->
+            <div class="label">{{ type.label }}</div>
+            <div class="eta">≈ {{ type.eta }}</div>
+          </div>
+        </ng-container>
+      </div>
+
+      <!-- Fila de método seleccionado y monto -->
+      <div class="payment-row">
+        <!-- Icono y etiqueta del método seleccionado -->
+        <div class="payment-selected">
+          <div class="payment-icon">
+            <ion-icon name="cash"></ion-icon>
+          </div>
+          <div class="payment-label">Efectivo</div>
+          <ion-icon class="chevron" name="chevron-forward-outline"></ion-icon>
+        </div>
+
+        <!-- Monto estático por el momento -->
+        <div class="payment-amount">
+          $1200.50
+        </div>
+      </div>
+
+      <!-- Botones de acción: confirmar y programar -->
+      <div class="action-row">
+        <button class="confirm-button" (click)="openDriverArriving()">
+          Buscar Taxi
+        </button>
+        <button class="schedule-button">
+          <ion-icon name="time"></ion-icon>
+        </button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

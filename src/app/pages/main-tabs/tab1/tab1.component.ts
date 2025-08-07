@@ -8,14 +8,14 @@ import { ContentCardComponent } from "src/app/components/content-card/content-ca
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
-import { TripOptionsComponent } from '../../trip-options/trip-options.component';
+import { TripOptionsComponent } from '../../trip-ask/trip-options/trip-options.component';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: './tab1.component.html',
   styleUrls: ['./tab1.component.scss'],
   standalone: true,
-  imports: [IonTitle, IonToolbar, IonHeader, IonActionSheet, IonList, IonLabel, IonInput, IonIcon, IonItem, IonContent, IonButton, BaseMapComponent, ContentCardComponent, FormsModule],
+  imports: [IonInput, IonIcon, IonItem, IonContent, IonButton, BaseMapComponent, ContentCardComponent, FormsModule],
 })
 export default class Tab1Component implements OnInit {
    googleMapsApiKey = environment.googleMapsApiKey;

@@ -1,5 +1,5 @@
 import { style } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, Input, OnInit } from '@angular/core';
 
 import { GoogleMapsModule } from '@angular/google-maps';
 import { IonSpinner } from '@ionic/angular/standalone';
@@ -13,8 +13,12 @@ import { environment } from 'src/environments/environment';
   imports: [GoogleMapsModule, IonSpinner],
 })
 export class BaseMapComponent implements OnInit {
+   @Input() height: string | number = '400px';
+  @Input() width:  string | number = '100%';
+  @HostBinding('style.height') get hostHeight() { return this.normalize(this.height); }
+  @HostBinding('style.width')  get hostWidth()  { return this.normalize(this.width);  }
   // Configuración del mapa
-  center = { 
+  center = {
     lat: 20.0217,   // Latitud (Norte positivo)
     lng: -75.8294   // Longitud (Oeste negativo)
   };
@@ -23,10 +27,15 @@ export class BaseMapComponent implements OnInit {
   // Opciones del mapa incluyendo la API key
   mapOptions = {
     apiKey: environment.googleMapsApiKey,
-    disableDefaultUI: true, 
+    disableDefaultUI: true,
     gestureHandling: 'greedy',
     clickableIcons: true
   };
+
+  private normalize(v: string|number): string {
+    // Si es número, lo interpretamos como px
+    return typeof v === 'number' ? `${v}px` : v;
+  }
 
   // Flag para controlar si el script está cargado
   isGoogleMapsLoaded = false;

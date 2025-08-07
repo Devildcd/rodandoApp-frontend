@@ -1,9 +1,11 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { ReusableModalComponent } from "../reusable-modal/reusable-modal.component";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+
+import { ReusableModalComponent } from 'src/app/components/reusable-modal/reusable-modal.component';
 import { IonContent, IonCard, IonCardContent, IonIcon, IonButton, IonChip, IonLabel } from "@ionic/angular/standalone";
 import { CommonModule } from '@angular/common';
-import { DriverInfoModalComponent } from "../driver-info-modal/driver-info-modal.component";
-import { ModalController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import DriverArrivingComponent  from '../../trip-progress/trip-driver-arriving/driver-arriving.component';
 
 export interface ServiceType {
   value: string;
@@ -13,22 +15,16 @@ export interface ServiceType {
   eta?: string;
 }
 
-interface PaymentMethod {
-  value: string;
-  label: string;
-  icon: string;
-}
-
 @Component({
-  selector: 'app-detail-trip-modal',
-  templateUrl: './detail-trip-modal.component.html',
-  styleUrls: ['./detail-trip-modal.component.scss'],
+  selector: 'app-trip-details',
+  templateUrl: './trip-details.component.html',
+  styleUrls: ['./trip-details.component.scss'],
   standalone: true,
-  imports: [IonLabel, IonChip, IonButton, IonIcon, IonCardContent, IonCard, IonContent, ReusableModalComponent, CommonModule, DriverInfoModalComponent],
+  imports: [IonLabel, IonChip, IonButton, IonIcon, IonCardContent, IonCard, IonContent, ReusableModalComponent, CommonModule],
 })
-export class DetailTripModalComponent {
- @ViewChild('detailTripModal', { static: true })
-  private detailTripModal!: ReusableModalComponent;
+export class TripDetailsComponent implements OnInit {
+  @ViewChild('tripDetail', { static: true })
+  private tripDetail!: ReusableModalComponent;
 
   @ViewChild('driverModal', { static: true })
   private driverModal!: ReusableModalComponent;
@@ -38,17 +34,18 @@ export class DetailTripModalComponent {
   distance = 5.4;      // en kilómetros
   duration = 12;       // en minutos
 
-   constructor(private modalCtrl: ModalController) {}
+  constructor(private modalCtrl: ModalController, private router: Router) { }
 
+  ngOnInit(): void {
+  }
   open() {
-    this.detailTripModal.present();
+    this.tripDetail.present();
   }
 
-  openDriverInfo() {
-    // Opcional: cerrar primero el detalle
-    this.detailTripModal.dismiss()
-      .then(() => this.driverModal.present());
-  }
+   async openDriverArriving() {
+    await this.modalCtrl.dismiss();
+    this.router.navigate(['trip-progress/driver-arriving']);
+    }
 
   serviceTypes: ServiceType[] = [
     {
@@ -96,4 +93,5 @@ export class DetailTripModalComponent {
     this.selectedVehicle = value;
     // tu lógica al cambiar vehículo…
   }
+
 }

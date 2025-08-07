@@ -18,7 +18,7 @@
 }
 
 .label {
-  padding: 0px 12px;
+  padding: 0px 5px;
 }
 
 .field-item {
@@ -106,6 +106,11 @@ ion-input {
   height: 48px;
 }
 
+.actions-container {
+  display: flex;
+  flex-direction: column;
+}
+
 /* Ajustes Add Stop */
 .add-stop-row {
   display: flex;
@@ -119,20 +124,6 @@ ion-input {
   display: flex;
   align-items: center;
   gap: 8px;
-
-  ion-toogle {
-    font-size: 1px;
-  }
-}
-
-.btn-add-stop {
-  --background: var(--ion-color-primary);
-  --color: var(--ion-color-light);
-  width: 40px;
-  height: 40px;
-  --border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(11, 11, 11, 0.05);
-  transition: transform 0.2s;
 }
 
 /* Contenedor Mapa */
@@ -141,11 +132,11 @@ ion-input {
   align-items: center;
   --background: transparent;
   --border-radius: 12px;
-  margin: 24px 0;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin: 0 0 10px;
 }
 
-.map-container .icon-wrapper {
+.icon-wrapper {
   background: var(--ion-color-primary);
   width: 40px;
   height: 40px;
@@ -156,7 +147,7 @@ ion-input {
   margin-right: 12px;
 }
 
-.map-container ion-icon {
+.icon-wrapper ion-icon {
   font-size: 20px;
   color: var(--ion-color-light);
 }
@@ -165,4 +156,5 @@ ion-input {
   flex: 1;
   font-size: 16px;
   color: var(--ion-text-color);
+  padding: 0px 12px;
 }

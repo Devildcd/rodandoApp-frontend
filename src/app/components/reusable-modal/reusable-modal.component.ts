@@ -11,25 +11,29 @@ import { IonModal, IonContent } from '@ionic/angular/standalone';
 })
 export class ReusableModalComponent  implements OnInit {
  @ViewChild('modal', { static: true, read: ElementRef })
-   private modalRef!: ElementRef<HTMLIonModalElement>;
+   public modalRef!: ElementRef<HTMLIonModalElement>;
   @Input() initialBreakpoint = 0.4;
    @Input() breakpoints = [0, 0.4, 0.8];
    @Input() presentingElement?: HTMLElement;
    @Input() cssClass?: string;
- 
+   @Input() backdropDismiss? : boolean = true;
+
    ngOnInit() {
      // Opcional: lógica previa
    }
- 
+
     /** Llama a esto para mostrar el modal */
    async present(): Promise<void> {
      await this.modalRef.nativeElement.present();
    }
- 
+
    /** Cierra el modal (puedes pasar data opcional) */
    async dismiss(data?: any): Promise<void> {
      await this.modalRef.nativeElement.dismiss(data);
    }
- 
+
+   get modalEl(): HTMLIonModalElement {
+    return this.modalRef.nativeElement;
+  }
 
 }

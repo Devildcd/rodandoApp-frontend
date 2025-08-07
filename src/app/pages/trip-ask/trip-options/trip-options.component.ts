@@ -4,18 +4,18 @@ import { ModalController } from '@ionic/angular';
 import { ContentCardComponent } from "src/app/components/content-card/content-card.component";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { DetailTripModalComponent } from '../../components/detail-trip-modal/detail-trip-modal.component';
+import { DetailTripModalComponent } from '../../../components/detail-trip-modal/detail-trip-modal.component';
+import { TripDetailsComponent } from '../trip-details/trip-details.component';
 
 @Component({
   selector: 'app-trip-options',
   templateUrl: './trip-options.component.html',
   styleUrls: ['./trip-options.component.scss'],
   standalone: true,
-  imports: [IonChip, IonSegmentButton, IonSegment, IonFooter, IonActionSheet, IonList, IonIcon, IonInput, IonLabel, IonItem, IonButton, IonButtons, IonTitle, IonToolbar, IonHeader, IonContent, ContentCardComponent, FormsModule, CommonModule, DetailTripModalComponent]
+  imports: [IonChip, IonList, IonIcon, IonInput, IonLabel, IonItem, IonButton, IonButtons, IonTitle, IonToolbar, IonHeader, IonContent, FormsModule, CommonModule, TripDetailsComponent]
 })
 export class TripOptionsComponent  implements OnInit {
   @ViewChild('modalInput', { static: false }) modalInput!: IonInput;
-  @ViewChild('detailTripModal') detailTripModal!: DetailTripModalComponent;
     origin: string = '';
   destination: string = '';
   showStopToggle: boolean = false;
@@ -72,7 +72,23 @@ export class TripOptionsComponent  implements OnInit {
   }
 
   async confirm() {
-    this.detailTripModal.open();
+    // 1) Cierra TripOptions
+    await this.modalCtrl.dismiss();
+
+    // 2) Crea y presenta TripDetails como nuevo modal
+    const detailModal = await this.modalCtrl.create({
+      component: TripDetailsComponent,
+      // componentProps: {
+      //   origin: this.origin,
+      //   destination: this.destination,
+      //   stops: this.stops
+      // },
+      breakpoints: [0, 0.4, 0.8],
+      initialBreakpoint: 0.8,
+      cssClass: 'trip-details-modal'
+    });
+
+    await detailModal.present();
   }
 
   vehicleTypes = [

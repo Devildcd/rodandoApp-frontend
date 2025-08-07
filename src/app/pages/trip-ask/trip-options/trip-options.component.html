@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar mode="ios">
+  <ion-toolbar>
     <ion-buttons slot="start">
       <ion-button color="medium" (click)="cancel()">
         <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
@@ -45,40 +45,25 @@
     </ion-item>
   </div>
 
+  <div class="actions-container">
   <!-- Paradas dinámicas -->
   <div class="add-stop-row">
     <div class="add-stop-left">
-      <ion-toggle [(ngModel)]="showStopToggle"></ion-toggle>
-       <span class="label">Añadir parada</span>
+      <div class="icon-wrapper">
+        <ion-icon name="add-outline"></ion-icon>
+      </div>
+      <span class="label">Añadir parada</span>
     </div>
-    <ion-button *ngIf="showStopToggle" fill="solid" shape="round" (click)="addStop()" class="btn-add-stop">
-      <ion-icon name="add"></ion-icon>
-    </ion-button>
   </div>
-
-  <ng-container *ngIf="showStopToggle">
-    <ion-item *ngFor="let stop of stops; let i=index" lines="full" class="field-item stop-item">
-      <ion-icon name="ellipse-outline" slot="start"></ion-icon>
-      <ion-input
-        label="Parada {{ i + 1 }}"
-        label-placement="floating"
-        fill="outline"
-        placeholder="Dirección de parada"
-        [(ngModel)]="stops[i]">
-      </ion-input>
-      <ion-button fill="clear" size="small" slot="end" (click)="removeStop(i)">
-        <ion-icon name="close-circle"></ion-icon>
-      </ion-button>
-    </ion-item>
-  </ng-container>
 
   <!-- Botón Mapa -->
-<ion-item class="map-container" lines="none" button>
-  <div class="icon-wrapper">
-    <ion-icon name="map-outline"></ion-icon>
-  </div>
-  <ion-label class="map-label">Localizar en el mapa</ion-label>
-</ion-item>
+  <ion-item class="map-container" lines="none" button>
+    <div class="icon-wrapper">
+      <ion-icon name="map-outline"></ion-icon>
+    </div>
+    <ion-label class="map-label">Localizar en el mapa</ion-label>
+  </ion-item>
+</div>
 
    <!-- Selector de Lugares -->
           <div class="vehicle-chip-list">
@@ -96,19 +81,19 @@
 <ion-list class="location-list">
   <ion-item lines="none" class="location-item" button>
     <div class="icon-circle">
-      <ion-icon slot="start" name="play-forward-outline"></ion-icon>
+      <ion-icon name="trending-up-outline"></ion-icon>
     </div>
     <ion-label>Casa</ion-label>
   </ion-item>
   <ion-item lines="none" class="location-item" button>
     <div class="icon-circle">
-      <ion-icon slot="start" name="play-forward-outline"></ion-icon>
+      <ion-icon name="trending-up-outline"></ion-icon>
     </div>
     <ion-label>Casa</ion-label>
   </ion-item>
   <ion-item lines="none" class="location-item" button>
     <div class="icon-circle">
-      <ion-icon slot="start" name="play-forward-outline"></ion-icon>
+      <ion-icon name="trending-up-outline"></ion-icon>
     </div>
     <ion-label>Trabajo</ion-label>
   </ion-item>
@@ -119,7 +104,4 @@
     ¡Vamos!
     <ion-icon name="rocket-outline"></ion-icon>
   </ion-button>
-
-  <app-detail-trip-modal #detailTripModal></app-detail-trip-modal>
-    >
 </ion-content>
