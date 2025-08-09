@@ -281,6 +281,7 @@ ion-button {
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s;
+  height: 48px;
 }
 
 .confirm-button:hover {
@@ -291,8 +292,8 @@ ion-button {
    background: var(--ion-color-light-tint);
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;

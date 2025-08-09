@@ -33,24 +33,30 @@
 }
 
 .welcome-container {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px; /* espacio entre texto y logo */
   margin-bottom: 20px;
+  flex-wrap: wrap; /* para que en pantallas pequeñas bajen */
 
   .welcome-text {
     font-size: 28px;
     font-weight: bold;
     color: var(--ion-color-primary);
-    margin-bottom: 10px;
+    margin: 0; /* quito margin-bottom porque está junto al logo */
   }
 
   .app-logo {
-    width: 100px;
+    width: 80px; /* un poco más pequeño para que encaje bien */
     height: auto;
-    margin-bottom: 8px;
-  }
-
-  .slogan-text {
-    font-size: 15px;
-    color: var(--ion-color-light-shade);
   }
 }
+
+.slogan-text {
+  text-align: center;
+  font-size: 15px;
+  color: var(--ion-color-light-shade);
+  margin-top: 8px;
+}
+
