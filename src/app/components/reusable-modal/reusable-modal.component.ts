@@ -7,33 +7,30 @@ import { IonModal, IonContent } from '@ionic/angular/standalone';
   templateUrl: './reusable-modal.component.html',
   styleUrls: ['./reusable-modal.component.scss'],
   standalone: true,
-  imports: [IonModal, IonContent]
+  imports: [IonModal]
 })
-export class ReusableModalComponent  implements OnInit {
- @ViewChild('modal', { static: true, read: ElementRef })
-   public modalRef!: ElementRef<HTMLIonModalElement>;
+export class ReusableModalComponent {
+@ViewChild('modal', { static: true })
+  private readonly modal!: IonModal;
+
   @Input() initialBreakpoint = 0.4;
-   @Input() breakpoints = [0, 0.4, 0.8];
-   @Input() presentingElement?: HTMLElement;
-   @Input() cssClass?: string;
-   @Input() backdropDismiss? : boolean = true;
+  @Input() breakpoints: number[] = [0, 0.4, 0.8];
+  @Input() presentingElement?: HTMLElement;
+  @Input() cssClass = '';
+  @Input() backdropDismiss = true;
 
-   ngOnInit() {
-     // Opcional: lógica previa
-   }
-
-    /** Llama a esto para mostrar el modal */
-   async present(): Promise<void> {
-     await this.modalRef.nativeElement.present();
-   }
-
-   /** Cierra el modal (puedes pasar data opcional) */
-   async dismiss(data?: any): Promise<void> {
-     await this.modalRef.nativeElement.dismiss(data);
-   }
-
-   get modalEl(): HTMLIonModalElement {
-    return this.modalRef.nativeElement;
+  /** Abre el modal */
+  async open(): Promise<void> {
+    await this.modal.present();
   }
 
+  /** Cierra el modal (puedes pasar data opcional) */
+  async close(data?: any): Promise<void> {
+    await this.modal.dismiss(data);
+  }
+
+  /** Devuelve la instancia del IonModal */
+  get modalInstance(): IonModal {
+    return this.modal;
+  }
 }

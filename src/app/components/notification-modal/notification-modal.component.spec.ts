@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { DetailTripModalComponent } from './detail-trip-modal.component';
+import { NotificationModalComponent } from './notification-modal.component';
 
-describe('DetailTripModalComponent', () => {
-  let component: DetailTripModalComponent;
-  let fixture: ComponentFixture<DetailTripModalComponent>;
+describe('NotificationModalComponent', () => {
+  let component: NotificationModalComponent;
+  let fixture: ComponentFixture<NotificationModalComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ DetailTripModalComponent ],
+      declarations: [ NotificationModalComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(DetailTripModalComponent);
+    fixture = TestBed.createComponent(NotificationModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

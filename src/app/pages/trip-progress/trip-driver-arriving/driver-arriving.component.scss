@@ -42,12 +42,12 @@
   .trip-type {
     display: flex;
     align-items: center;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     color: var(--ion-color-primary);
 
     ion-icon {
-      font-size: 20px;
+      font-size: 24px;
       margin-right: 8px;
     }
   }
@@ -55,12 +55,13 @@
   .trip-info {
     display: flex;
     align-items: center;
-    font-size: 14px;
+    font-size: 16px;
     color: var(--ion-color-light);
 
     .info-item {
       display: flex;
       align-items: center;
+      color: var(--ion-color-warning-shade);
 
       ion-icon {
         font-size: 16px;

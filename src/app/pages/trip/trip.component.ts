@@ -6,14 +6,14 @@ import { ReusableModalComponent } from "src/app/components/reusable-modal/reusab
 import { ModalController, LoadingController, AlertController, NavParams } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { DetailTripModalComponent } from "src/app/components/detail-trip-modal/detail-trip-modal.component";
+
 
 @Component({
   selector: 'app-trip',
   templateUrl: './trip.component.html',
   styleUrls: ['./trip.component.scss'],
   standalone: true,
-  imports: [IonContent, BaseMapComponent, FloatingButtonComponent, DetailTripModalComponent],
+  imports: [IonContent, BaseMapComponent, FloatingButtonComponent],
 })
 export default class TripComponent {
 

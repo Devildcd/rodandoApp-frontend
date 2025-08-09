@@ -35,5 +35,4 @@ export default class DriverArrivingComponent  implements OnInit {
    cancel() {
     return this.modalCtrl.dismiss(null, 'cancel');
   }
-
 }

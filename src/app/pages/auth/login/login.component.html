@@ -1,3 +1,41 @@
-<p>
-  login works!
-</p>
+<form>
+  <!-- Email -->
+  <ion-item lines="none" class="auth-input">
+    <ion-icon name="mail-outline" slot="start"></ion-icon>
+    <ion-input type="email" label="Correo electrónico" label-placement="floating" fill="outline"
+      placeholder="Ingresa tu email"></ion-input>
+    <ion-button fill="clear" size="small" slot="end">
+      <ion-icon name="close-circle" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-item>
+
+  <!-- Password -->
+  <ion-item lines="none" class="auth-input">
+    <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+    <ion-input type="password" label="Contraseña" label-placement="floating" fill="outline"
+      placeholder="Ingresa tu contraseña"></ion-input>
+    <ion-button fill="clear" size="small" slot="end">
+      <ion-icon name="close-circle" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-item>
+
+  <!-- Botón de login -->
+  <ion-button expand="block" class="login-button ion-margin-top" color="primary" type="submit">
+    <ion-icon slot="start" name="log-in-outline"></ion-icon>
+    Iniciar Sesión
+  </ion-button>
+
+  <!-- Enlace de contraseña olvidada -->
+  <div class="forgot-password-container ion-text-center ion-margin-top">
+    <a routerLink="/forgot-password" class="forgot-password-link">
+      ¿Olvidaste tu contraseña?
+    </a>
+  </div>
+</form>
+
+<div class="link-container">
+  <p>
+    ¿No tienes cuenta?
+    <a routerLink="/auth/register" class="link-action">Regístrate aquí</a>
+  </p>
+</div>

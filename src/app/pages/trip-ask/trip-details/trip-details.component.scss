@@ -36,7 +36,7 @@
       ion-icon {
         font-size: 14px;
         margin-right: 4px;
-        color: var(--ion-color-primary);
+        color: var(--ion-color-warning-shade);
       }
 
       span {
@@ -78,7 +78,7 @@
 }
 
 .destination {
-  color: var(--ion-color-danger);
+  color: var(--ion-color-warning-shade);
 }
 
 .address-text {
@@ -242,6 +242,11 @@ ion-button {
   font-weight: 500;
   color: var(--ion-color-primary-contrast);
   flex: 1;
+}
+
+.payment-selected ion-icon {
+  font-size: 20px;
+  color: var(--ion-color-warning-shade);
 }
 
 .payment-selected .chevron {

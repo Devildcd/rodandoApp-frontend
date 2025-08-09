@@ -1,3 +1,98 @@
-<p>
-  signup works!
-</p>
+<form>
+  <!-- Nombre -->
+  <ion-item lines="none" class="auth-input">
+    <ion-icon name="person-outline" slot="start"></ion-icon>
+    <ion-input
+      type="text"
+      label="Nombre completo"
+      label-placement="floating"
+      fill="outline"
+      placeholder="Ingresa tu nombre"
+    ></ion-input>
+    <ion-button fill="clear" size="small" slot="end">
+      <ion-icon name="close-circle" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-item>
+
+  <!-- Selector Email o Teléfono -->
+  <ion-segment
+  [(ngModel)]="contactMethod"
+  name="contactMethod"
+  class="ion-margin-top"
+  value="email"
+>
+    <ion-segment-button value="email">
+    <ion-label>Correo</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="phone">
+    <ion-label>Teléfono</ion-label>
+  </ion-segment-button>
+  </ion-segment>
+
+
+  <!-- Email -->
+  <ion-item *ngIf="contactMethod === 'email'" lines="none" class="auth-input ion-margin-top">
+    <ion-icon name="mail-outline" slot="start"></ion-icon>
+    <ion-input
+      type="email"
+      label="Correo electrónico"
+      label-placement="floating"
+      fill="outline"
+      placeholder="Ingresa tu email"
+    ></ion-input>
+    <ion-button fill="clear" size="small" slot="end">
+      <ion-icon name="close-circle" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-item>
+
+  <!-- Teléfono -->
+  <ion-item *ngIf="contactMethod === 'phone'" lines="none" class="auth-input ion-margin-top">
+    <ion-icon name="call-outline" slot="start"></ion-icon>
+    <ion-input
+      type="tel"
+      label="Teléfono"
+      label-placement="floating"
+      fill="outline"
+      placeholder="Ingresa tu teléfono"
+    ></ion-input>
+    <ion-button fill="clear" size="small" slot="end">
+      <ion-icon name="close-circle" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-item>
+
+  <!-- Contraseña -->
+  <ion-item lines="none" class="auth-input ion-margin-top">
+    <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+    <ion-input
+      type="password"
+      label="Contraseña"
+      label-placement="floating"
+      fill="outline"
+      placeholder="Ingresa tu contraseña"
+    ></ion-input>
+    <ion-button fill="clear" size="small" slot="end">
+      <ion-icon name="close-circle" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-item>
+
+  <!-- Confirmar Contraseña -->
+  <ion-item lines="none" class="auth-input ion-margin-top">
+    <ion-icon name="lock-open-outline" slot="start"></ion-icon>
+    <ion-input
+      type="password"
+      label="Confirmar contraseña"
+      label-placement="floating"
+      fill="outline"
+      placeholder="Confirma tu contraseña"
+    ></ion-input>
+    <ion-button fill="clear" size="small" slot="end">
+      <ion-icon name="close-circle" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-item>
+
+  <!-- Botón de registro -->
+  <ion-button expand="block" class="login-button ion-margin-top" color="primary" type="submit">
+    <ion-icon slot="start" name="person-add-outline"></ion-icon>
+    Registrarse
+  </ion-button>
+</form>

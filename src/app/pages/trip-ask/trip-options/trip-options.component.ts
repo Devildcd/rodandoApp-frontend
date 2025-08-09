@@ -4,7 +4,6 @@ import { ModalController } from '@ionic/angular';
 import { ContentCardComponent } from "src/app/components/content-card/content-card.component";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { DetailTripModalComponent } from '../../../components/detail-trip-modal/detail-trip-modal.component';
 import { TripDetailsComponent } from '../trip-details/trip-details.component';
 
 @Component({

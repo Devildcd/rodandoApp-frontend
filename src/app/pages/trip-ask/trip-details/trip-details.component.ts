@@ -39,7 +39,7 @@ export class TripDetailsComponent implements OnInit {
   ngOnInit(): void {
   }
   open() {
-    this.tripDetail.present();
+    this.tripDetail.open();
   }
 
    async openDriverArriving() {

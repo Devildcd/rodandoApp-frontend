@@ -1,0 +1,57 @@
+
+
+.auth-input {
+  --background: transparent;
+  --border-radius: 12px;
+  --padding-start: 8px;
+  margin-top: 12px;
+  border-radius: 12px;
+
+  border: 1.5px solid var(--ion-color-primary); /* borde visible */
+  box-sizing: border-box; /* para que el padding y borde no afecten el tamaño */
+
+  ion-icon {
+    color: var(--ion-color-primary);
+    font-size: 20px;
+  }
+
+  ion-input {
+    font-size: 15px;
+    color: var(--ion-color-light);
+  }
+}
+
+
+.login-button {
+  font-size: 16px;
+  font-weight: bold;
+  height: 48px;
+  border-radius: 12px;
+}
+
+.forgot-password-link {
+  font-size: 14px;
+  color: var(--ion-color-primary);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.link-container {
+  text-align: center;
+  font-size: 14px;
+  padding: 16px 0;
+  color: var(--ion-color-medium);
+
+  .link-action {
+    color: var(--ion-color-primary);
+    font-weight: 500;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
