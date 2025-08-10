@@ -1,29 +1,57 @@
 <form>
+
+  <ion-segment
+  name="contactMethod"
+  class="ion-margin-top"
+  value="email"
+>
+    <ion-segment-button value="email">
+    <ion-label>Correo</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="phone">
+    <ion-label>Teléfono</ion-label>
+  </ion-segment-button>
+  </ion-segment>
+
   <!-- Email -->
-  <ion-item lines="none" class="auth-input">
-    <ion-icon name="mail-outline" slot="start"></ion-icon>
-    <ion-input type="email" label="Correo electrónico" label-placement="floating" fill="outline"
-      placeholder="Ingresa tu email"></ion-input>
-    <ion-button fill="clear" size="small" slot="end">
-      <ion-icon name="close-circle" slot="icon-only"></ion-icon>
-    </ion-button>
-  </ion-item>
+  <div  class="auth-input">
+  <span class="icon" aria-hidden="true">
+    <ion-icon name="mail-outline"></ion-icon>
+  </span>
+
+  <div class="input-wrapper">
+    <input
+      type="email"
+      placeholder=" "
+      aria-label="Correo electrónico"
+    />
+    <label for="email">Correo electrónico</label>
+  </div>
+
+  <button type="button" class="clear-btn" aria-label="Limpiar email">
+    <ion-icon name="close-circle"></ion-icon>
+  </button>
+</div>
 
   <!-- Password -->
-  <ion-item lines="none" class="auth-input">
-    <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
-    <ion-input type="password" label="Contraseña" label-placement="floating" fill="outline"
-      placeholder="Ingresa tu contraseña"></ion-input>
-    <ion-button fill="clear" size="small" slot="end">
-      <ion-icon name="close-circle" slot="icon-only"></ion-icon>
-    </ion-button>
-  </ion-item>
+  <div class="auth-input">
+  <span class="icon" aria-hidden="true">
+    <ion-icon name="lock-closed-outline"></ion-icon>
+  </span>
 
-  <!-- Botón de login -->
-  <ion-button expand="block" class="login-button ion-margin-top" color="primary" type="submit">
-    <ion-icon slot="start" name="log-in-outline"></ion-icon>
-    Iniciar Sesión
-  </ion-button>
+  <div class="input-wrapper">
+    <input
+      type="password"
+      placeholder=" "
+      aria-label="Contraseña"
+    />
+    <label for="password">Contraseña</label>
+  </div>
+
+  <button type="button" class="clear-btn" aria-label="Limpiar contraseña">
+    <ion-icon name="close-circle"></ion-icon>
+  </button>
+</div>
 
   <!-- Enlace de contraseña olvidada -->
   <div class="forgot-password-container ion-text-center ion-margin-top">
